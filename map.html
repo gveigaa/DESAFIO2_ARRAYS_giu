@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Map</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#e8f0fe;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    background:white;
+    width:500px;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,.2);
+}
+
+h1{
+    text-align:center;
+    color:#1565c0;
+    margin-bottom:20px;
+}
+
+.resultado p{
+    margin:8px 0;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>Conversão de Dólar para Real</h1>
+
+<div class="resultado" id="resultado"></div>
+
+</div>
+
+<script>
+const cotacao = 5.08;
+
+const produtos = [
+    {nome:"Notebook", preco:1200},
+    {nome:"Celular", preco:850},
+    {nome:"Fone Bluetooth", preco:150},
+    {nome:"Monitor", preco:320},
+    {nome:"Mouse Gamer", preco:75}
+];
+
+const reais = produtos.map(produto => ({
+    nome: produto.nome,
+    valor: (produto.preco * cotacao).toFixed(2)
+}));
+
+const resultado = document.getElementById("resultado");
+
+reais.forEach(produto=>{
+    resultado.innerHTML += `<p>${produto.nome} → <strong>R$ ${produto.valor}</strong></p>`;
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio Reduce</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#e8f0fe;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+        }
+
+        .container{
+            background:white;
+            width:500px;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,.2);
+            text-align:center;
+        }
+
+        h1{
+            color:#1565c0;
+            margin-bottom:20px;
+        }
+
+        .resultado{
+            background:#f5f5f5;
+            padding:15px;
+            border-radius:8px;
+            margin-top:20px;
+        }
+
+        p{
+            font-size:18px;
+            margin:10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Passos da Semana</h1>
+
+    <div class="resultado" id="resultado"></div>
+
+</div>
+
+<script>
+
+const passosSemana = [
+    8230,
+    9650,
+    10120,
+    8950,
+    12340,
+    15080,
+    11050
+];
+
+const totalPassos = passosSemana.reduce((total, passos) => total + passos, 0);
+
+document.getElementById("resultado").innerHTML = `
+    <p><strong>Segunda:</strong> ${passosSemana[0]} passos</p>
+    <p><strong>Terça:</strong> ${passosSemana[1]} passos</p>
+    <p><strong>Quarta:</strong> ${passosSemana[2]} passos</p>
+    <p><strong>Quinta:</strong> ${passosSemana[3]} passos</p>
+    <p><strong>Sexta:</strong> ${passosSemana[4]} passos</p>
+    <p><strong>Sábado:</strong> ${passosSemana[5]} passos</p>
+    <p><strong>Domingo:</strong> ${passosSemana[6]} passos</p>
+
+    <hr style="margin:15px 0;">
+
+    <p><strong>Total da semana:</strong> ${totalPassos.toLocaleString()} passos</p>
+`;
+
+</script>
+
+</body>
+</html>
